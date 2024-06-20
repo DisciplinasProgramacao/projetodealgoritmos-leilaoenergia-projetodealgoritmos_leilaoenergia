@@ -1,5 +1,5 @@
-# Trabalho Prático - Fundamentos de Projeto e Análise de Algoritmos
-Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
+# Projeto de Algoritmos - Leilão Energia 
+O objetivo do projeto é desenvolver uma solução eficiente para o problema de leilão de energia. A empresa produtora de energia deseja maximizar seu lucro ao vender lotes de megawatts em leilões. Cada empresa interessada no leilão faz um lance por uma quantidade específica de megawatts, oferecendo um valor correspondente. O desafio é selecionar os lances de modo a obter o maior valor total possível, respeitando a quantidade total de energia disponível para venda.
 
 # Informações
 
