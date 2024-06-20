@@ -1,10 +1,15 @@
-# Nome do projeto
+# Trabalho Prático - Fundamentos de Projeto e Análise de Algoritmos
 Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
+
+# Informações
+
+Critério de avaliação escolhido: Individual
+Linguagem de programação: Java
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
+* Caio Elias Rodrigues Araujo
+* Victor de Souza Friche Passos
 * Nome completo do aluno 3
 * Nome completo do aluno 4
 * Nome completo do aluno 4
@@ -12,6 +17,5 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* João Caram Santos de Oliveira
 
