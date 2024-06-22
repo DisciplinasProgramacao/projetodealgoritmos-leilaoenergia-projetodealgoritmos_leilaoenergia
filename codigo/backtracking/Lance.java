@@ -1,19 +1,23 @@
 package codigo.backtracking;
 
-class Lance {
+public class Lance {
     int megawatts;
     int valor;
+    String empresa;
 
-    Lance(int megawatts, int valor) {
+    public Lance(int megawatts, int valor, String empresa) {
         this.megawatts = megawatts;
         this.valor = valor;
+        this.empresa = empresa;
     }
 
     @Override
     public String toString() {
-        return "Lance{" +
+        return "(" +
+                ", empresa='" + empresa + '\'' +
                 "megawatts=" + megawatts +
                 ", valor=" + valor +
-                '}';
+                ')';
     }
 }
+
