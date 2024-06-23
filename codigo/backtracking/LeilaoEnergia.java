@@ -18,7 +18,7 @@ public class LeilaoEnergia {
         this.melhorLances = new ArrayList<>();
         this.melhorValor = 0;
         this.energiaUtilizada = 0;
-    }
+    } 
 
     public void encontrarMelhorVenda() {
         encontrarMelhorVenda(new ArrayList<>(), 0, 0, 0);
@@ -27,7 +27,7 @@ public class LeilaoEnergia {
         for (Lance lance : melhorLances) {
             System.out.println("\t(megawatts=" + lance.megawatts + ", valor=" + lance.valor + ", empresa='" + lance.empresa + "')");
         }
-        System.out.println("\nCom valor total de " + melhorValor + " dinheiros e energia total utilizada de " + energiaUtilizada + " megawatts");
+        System.out.println("\nCom valor total de " + melhorValor + " dinheiros e energia total utilizada de " + energiaUtilizada + " megawatts\n");
 
     }
 
@@ -60,14 +60,14 @@ public class LeilaoEnergia {
         return energiaUtilizada;
     }
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         // Main para o conjunto 1
         int energiaTotalConjunto1 = 8000;
         Lance[] conjunto1 = DadosDeTeste.gerarConjunto1();
         executarTeste("Conjunto 1", conjunto1, energiaTotalConjunto1, 1); // Testar uma vez
     }
 
-    public static void main2(String[] args) {
+    public static void main(String[] args) {
         // Main para o conjunto 2
         int energiaTotalConjunto2 = 8000;
         Lance[] conjunto2 = DadosDeTeste.gerarConjunto2();
@@ -82,17 +82,19 @@ public class LeilaoEnergia {
 
         // Gerar conjuntos de teste e executar testes incrementando o tamanho do conjunto
         for (int tamanhoConjunto = incremento;; tamanhoConjunto += incremento) {
-            List<Lance[]> conjunto = GeradorDeProblemas.geracaoDeLances(tamanhoConjunto, 10, 0.5); // Gerar um conjunto de teste
+            System.out.println("Começando testes para o conjunto " + tamanhoConjunto + "...");
+            List<Lance[]> conjuntos = GeradorDeProblemas.geracaoDeLances(tamanhoConjunto, numTestes); // Gerar conjuntos de teste
             long totalDurationMillis = 0;
 
             // Executar testes para o conjunto atual
             for (int teste = 0; teste < numTestes; teste++) {
+                System.out.println("Teste " + (teste + 1));
                 Instant start = Instant.now();
-                LeilaoEnergia leilao = new LeilaoEnergia(energiaTotal, conjunto.get(0)); // Usar apenas o primeiro conjunto gerado
+                LeilaoEnergia leilao = new LeilaoEnergia(energiaTotal, conjuntos.get(teste)); // Usar cada conjunto gerado
                 leilao.encontrarMelhorVenda();
                 Instant end = Instant.now();
                 Duration duration = Duration.between(start, end);
-                totalDurationMillis += duration.toMillis();
+                totalDurationMillis += duration.toMillis();           
             }
 
             long averageDurationMillis = totalDurationMillis / numTestes;
@@ -100,19 +102,19 @@ public class LeilaoEnergia {
             // Verificar se o tempo médio excede o limite de tempo
             if (averageDurationMillis > limiteTempoMillis) {
                 System.out.println("Conjunto com tamanho " + tamanhoConjunto + " não pode ser resolvido em até 30 segundos.");
+                System.out.println("Tempo médio excedeu o limite: " + averageDurationMillis + " ms");
                 break; // Sair do loop se exceder o tempo limite
             }
 
             // Exibir informações do conjunto atual
-            System.out.println("Conjunto com tamanho " + tamanhoConjunto + ", Tempo médio de execução: " + averageDurationMillis + " ms");
+            System.out.println("Conjunto com tamanho " + tamanhoConjunto + ", Tempo médio de execução: " + averageDurationMillis + " ms\n\n");
         }
     }
-
     // Método utilizado para executar os conjuntos pré-determinados
     private static void executarTeste(String nomeConjunto, Lance[] lances, int energiaTotal, int numTestes) {
         long totalDurationMillis = 0;
 
-        for (int i = 0; i < numTestes; i++) { // Realizar o número especificado de testes para cada conjunto
+        for (int i = 0; i < numTestes; i++) {
             Instant start = Instant.now();
             LeilaoEnergia leilao = new LeilaoEnergia(energiaTotal, lances);
             leilao.encontrarMelhorVenda();
