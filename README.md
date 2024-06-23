@@ -4,16 +4,17 @@ O objetivo do projeto é desenvolver uma solução eficiente para o problema de 
 # Informações
 
 Critério de avaliação escolhido: Individual
+
 Linguagem de programação: Java
+
+O relatório técnico se encontra na pasta "docs"
 
 ## Alunos integrantes da equipe
 
 * Caio Elias Rodrigues Araujo
+* Camila Melo Ferreira
 * Victor de Souza Friche Passos
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 4
-* Nome completo do aluno 4
+* Vitor de Figueiredo Pereira
 
 ## Professores responsáveis
 
